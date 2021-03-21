@@ -1,4 +1,5 @@
 # ExProjections
+This is a fork of - [andyl/ex_projections][lnk2]
 
 Elixir's umbrella structure doesn't work out-of-the-box with
 `vim-projectionist`.  The problem is that `vim-projectionist` allows one
@@ -19,7 +20,7 @@ editors.
 
 First, clone the repo locally:
 
-    git clone https://github.com/andyl/ex_projections
+    git clone https://github.com/dkuku/ex_projections
 
 Then install the escript:
 
@@ -42,7 +43,7 @@ dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:ex_projections, git: "https://github.com/andyl/ex_projections"}
+    {:ex_projections, git: "https://github.com/dkuku/ex_projections"}
   ]
 end
 ```
@@ -54,8 +55,10 @@ Once this is done, you can run the mix task:
 ## Related Projects
 
 - [tpope/vim-projectionist][lnk1]
-- [andyl/vim-projectionist-elixir][lnk2]
+- [andyl/ex_projections][lnk2]
+- [andyl/vim-projectionist-elixir][lnk3]
 
 [lnk1]: https://github.com/tpope/vim-projectionist
-[lnk2]: https://github.com/andyl/vim-projectionist-elixir
+[lnk2]: https://github.com/andyl/ex_projections
+[lnk3]: https://github.com/andyl/vim-projectionist-elixir
 
