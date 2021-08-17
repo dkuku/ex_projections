@@ -17,7 +17,7 @@ defmodule ExProjections.GenData do
   end
 
   def generate_umbrella_entry(app_path, {k, v}) do
-        {get_new_path(app_path, k), maybe_update_alternate(app_path, v)}
+    {get_new_path(app_path, k), maybe_update_alternate(app_path, v)}
   end
 
   def get_new_path(app_path, template) do
@@ -33,10 +33,10 @@ defmodule ExProjections.GenData do
   end
 
   def read_projections(app_path \\ nil) do
-    cond do
-      nil == app_path -> @projections_path
-      String.ends_with?(app_path, "_web") -> @projections_path
-      true -> @umbrella_path
+    if app_path do
+      @umbrella_path
+    else
+      @projections_path
     end
     |> File.read!()
     |> Jason.decode!()
