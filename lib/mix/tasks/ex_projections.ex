@@ -4,7 +4,7 @@ defmodule Mix.Tasks.ExProjections do
   @shortdoc "Write vim-projectionist file"
 
   @moduledoc """
-  See the source at http://github.com/andyl/ex_projections
+  See the source at http://github.com/dkuku/ex_projections
   """
 
   def run(_args) do

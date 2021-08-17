@@ -1,14 +1,16 @@
 defmodule ExProjections.GenData do
   @projections_path Path.join(:code.priv_dir(:ex_projections), "projections.json")
+  @umbrella_path Path.join(:code.priv_dir(:ex_projections), "umbrella.json")
 
   def mix_project do
-    read_projections(@projections_path)
+    read_projections()
   end
 
   def umbrella_project(list) do
     list
     |> Enum.flat_map(fn app_path ->
-      read_projections(@projections_path)
+      app_path
+      |> read_projections()
       |> Enum.map(&generate_umbrella_entry(app_path, &1))
     end)
     |> Map.new()
@@ -30,8 +32,13 @@ defmodule ExProjections.GenData do
     end
   end
 
-  def read_projections(path) do
-    File.read!(path)
+  def read_projections(app_path \\ nil) do
+    cond do
+      nil == app_path -> @projections_path
+      String.contains?(app_path, "_web") -> @projections_path
+      true -> @umbrella_path
+    end
+    |> File.read!()
     |> Jason.decode!()
   end
 end
