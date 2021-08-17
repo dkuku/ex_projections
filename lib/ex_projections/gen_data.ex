@@ -35,7 +35,7 @@ defmodule ExProjections.GenData do
   def read_projections(app_path \\ nil) do
     cond do
       nil == app_path -> @projections_path
-      String.contains?(app_path, "_web") -> @projections_path
+      String.ends_with?(app_path, "_web") -> @projections_path
       true -> @umbrella_path
     end
     |> File.read!()
